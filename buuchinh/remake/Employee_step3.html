@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <title>Document</title>
 </head>
 
@@ -24,55 +24,151 @@
                 <div class="inner-circle active"></div>
             </div>
             <div class="outter-circle">
-                <div class="inner-circle non-active"></div>
+                <div class="inner-circle active"></div>
             </div>
             <div class="outter-circle">
                 <div class="inner-circle non-active"></div>
             </div>
         </div>
-        <div class="progress-status">
-        </div>
+        <div class="progress-status"></div>
         <div class="user-options">
-            
+            <button class="sidebar-toggle-btn">
+                <i class="bx bx-menu"></i>
+            </button>
+            <div class="sidebar">
+                <button class="sidebar-close-btn">
+                    <i class="bx bx-x"></i>
+                </button>
+                <!-- Add your sidebar content here -->
+            </div>
+            <div class="cookieCrumb">
+                <i class='bx bx-home'></i>
+                <div class="arrow">/</div>
+                <div class="product">Printer</div>
+            </div>
+            <div class="shopping-container">
+                <div class="categoriesTab">
+                    <div class="label"><b>DANH MỤC</b></div>
+                    <div class="label-content">
+                        <div class="type-label">
+                            <div class="type"><b>Printer</b></div>
+                        </div>
+                        <div class="brand"><i>HP</i></div>
+                    </div>
+                </div>
+                <div class="right_section_step3">
+                    
+                    <div class="productsTab">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="footer">
             <b>Footer</b>
         </div>
     </div>
+    <script>
+        const sidebarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+        const sidebarCloseBtn = document.querySelector('.sidebar-close-btn');
+        const sidebar = document.querySelector('.sidebar');
+
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebar.classList.add('active');
+        });
+
+        sidebarCloseBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+
+    </script>
 </body>
 <style>
-    *{
+    .cookieCrumb {
+        margin-top: 10px;
+        width: 100%;
+        padding-left: 65px;
+        display: flex;
+        font-size: 20px;
+    }
+
+    .cookieCrumb i {
+        font-size: 23px;
+
+    }
+
+    .filterTab {
+        background-color: lightgray;
+        height: 100px;
+        width: 70vw;
+        border-radius: 5px;
+        box-shadow: 0px 2px 15px 3px rgba(186, 200, 204, 0.598);
+    }
+
+    .productsTab {
+        background-color: white;
+        height: 1000px;
+        width: 70vw;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        box-shadow: 0px 2px 15px 3px rgba(186, 200, 204, 0.598);
+    }
+
+    .label {
+        border: 6px solid red;
+        background-color: red;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .categoriesTab {
+        box-shadow: 0px 2px 15px 3px rgba(186, 200, 204, 0.598);
+        width: 300px;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .shopping-container {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-around;
+    }
+
+    * {
         font-family: 'Roboto', sans-serif;
     }
-    .rectangle{
+
+    .rectangle {
         height: 200px;
         width: 400px;
     }
 
-    .square{
+    .square {
         height: 200px;
         width: 200px;
     }
 
-    .progress-status{
+    .progress-status {
         display: flex;
         z-index: 1;
-        top: 188px;
+        top: 190px;
         left: 0;
-        width: 10px;
         position: absolute;
         height: 10px;
-        width: 37%;
+        width: 62%;
         background-color: red;
     }
-    .active{
+
+    .active {
         background-color: red;
     }
-    .non-active{
+
+    .non-active {
         background-color: lightgrey;
     }
-    .progress-bar{
+
+    .progress-bar {
         z-index: 2;
         top: 29px;
         position: relative;
@@ -80,6 +176,7 @@
         width: 100%;
         justify-content: space-around;
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -111,20 +208,22 @@
 
     body {
         background-color: lightgrey;
+        margin: 0;
+        overflow-x: hidden;
     }
-    .branch{
+
+    .branch {
         margin-right: 20px;
         color: red;
     }
+
     .nav {
         background-color: white;
-        height: 100px;
-        position: fixed;
-        top: 0;
+        color: white;
         width: 100%;
-        display: flex;
-        justify-content: right;
-        align-items: center;
+        height: 100px;
+        padding: 20px;
+
     }
 
     .footer {
@@ -135,31 +234,32 @@
     .total-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        /* justify-content: center; */
         /* Align content vertically */
         align-items: center;
         /* Align content horizontally */
-        height: 100vh;
-        /* Use viewport height for full-page height */
+        min-height: 100vh;
+        /* Use min-height instead of height */
     }
 
-
     .user-options {
+
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        /* justify-content: center; */
         align-items: center;
         background-color: white;
-        height: 400px;
+        height: 100%;
+        /* Set height to 100% to fill the available space */
         position: relative;
         width: 100%;
         border-top: 10px solid grey;
         border-bottom: 10px solid red;
+        /* overflow: auto; */
+        /* Enable scrolling when content exceeds the container's height */
     }
 
-    .user-options i {
-        color: white;
-        font-size: 75px;
-    }
+
 
     .option-box {
         background-color: red;
@@ -181,9 +281,54 @@
     }
 
     .footer {
-        position: fixed;
-        bottom: 0;
         width: 100%;
+    }
+
+    .sidebar-toggle-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .sidebar-toggle-btn i {
+        color: grey;
+        font-size: 24px;
+    }
+
+    .sidebar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        /* Adjust the width as needed */
+        height: 100%;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.active {
+        transform: translateX(0%);
+    }
+
+    .sidebar-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .sidebar-close-btn i {
+        color: grey;
+        font-size: 24px;
     }
 </style>
 
